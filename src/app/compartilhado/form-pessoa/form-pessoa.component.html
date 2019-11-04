@@ -1,0 +1,55 @@
+<form #f="ngForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label for="nome">Nome</label>
+      <textarea 
+        class="form-control" 
+        id="nome"  
+        rows="3" 
+        placeholder="Seu nome..." name="nome"
+        #nome="ngModel"
+        [class.is-invalid]="!nome.valid && nome.touched"
+        [(ngModel)]="pessoa.nome"
+        required>
+      </textarea>
+      <div *ngIf="!nome.valid && nome.touched" class="text-danger">
+        Escreva o nome !
+      </div>
+    </div>
+
+    <div class="form-group">
+        <label for="cidade">Cidade</label>
+        <textarea 
+          class="form-control" 
+          id="cidade"  
+          rows="3" 
+          placeholder="Sua cidade..." name="cidade"
+          #cidade="ngModel"
+          [class.is-invalid]="!cidade.valid && cidade.touched"
+          [(ngModel)]="pessoa.cidade" 
+          required>
+        </textarea>
+        <div *ngIf="!cidade.valid && cidade.touched" class="text-danger">
+          Escreva o nome da Cidade !
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="estado">Estado</label>
+        <textarea 
+          class="form-control" 
+          id="estado" 
+          rows="3" 
+          placeholder="Seu estado..." name="estado"
+          #estado="ngModel"
+          [class.is-invalid]="!estado.valid && estado.touched"
+          [(ngModel)]="pessoa.estado"
+          required>
+        </textarea>
+        <div *ngIf="!estado.valid && estado.touched" class="text-danger">
+          Escreva o nome do seu estado !
+        </div>
+    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Salvar</button>
+</form>

@@ -1,0 +1,43 @@
+    
+    <table class="table" >
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Cidade</th>
+          <th scope="col">Estado</th>
+          <th scope="col">Editar</th>
+          <th scope="col">Deletar</th>
+        </tr>
+      </thead>
+      <tbody>
+     
+        <tr *ngFor="let pessoa of pessoas">
+          <th scope="row"># {{pessoa.id}}</th>
+          <td>{{pessoa.nome}}</td>
+          <td>{{pessoa.cidade}}</td>
+          <td>{{pessoa.estado}}</td>
+          <td><button type="button" class="btn btn-primary btn-sm ml-1" routerLink="/pessoa/editar/{{pessoa.id}}">Editar</button></td>
+          <td><button type="button" class="btn btn-danger btn-sm ml-1" (click)="deletaPessoa(pessoa.id)">X</button></td>   
+        </tr>
+     
+      </tbody>
+     
+    </table>
+
+    <div class="container mt-3">
+        <div class="row">
+           <div class="text-right">
+              <button type="button" class="btn btn-success" routerLink="/pessoa/criar">Novo Cadastro de Pessoa</button>
+            </div>
+            <div class="text-center" *ngIf="!existemPessoa()">
+              Nenhuma Pessoa cadastrada.
+            </div>
+          </div>
+        </div>
+  
+  
+
+
+
+  
